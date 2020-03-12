@@ -37,7 +37,6 @@ const App = () => {
     rawFile.onreadystatechange = () => {
       if(rawFile.status == 200 && rawFile.readyState == 4)
       {
-        debugger;
         let b64encoded:any = btoa(rawFile.response);
         fileToSend = new UploadFile("Attachment.pdf", b64encoded);
         const title = "D4SAttachmentTest";
@@ -116,6 +115,7 @@ const App = () => {
         })
         .then(response => {return response.status})
         .then(res=>{
+          // parsing xml document to obtain the inner content
           // parsing to XML document
           // let parser = new DOMParser();
           // let xmlDoc = parser.parseFromString(res, "text/xml");
